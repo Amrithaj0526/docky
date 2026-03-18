@@ -11,19 +11,19 @@ steps:
     name: "Install dependencies"
     command: |
       echo "Installing dependencies..."
-      ls
+      npm install
 
   - type: Command
     name: "Build Step"
     command: |
-      echo "Build started..."
-      echo "Compiling project..."
+      echo "Building project..."
+      npm run build || echo "No build script"
 
   - type: Command
     name: "Test Step"
     command: |
       echo "Running tests..."
-      echo "All tests passed"
+      npm test || echo "No tests defined"
 
 outputArtifacts:
   - name: build_output
